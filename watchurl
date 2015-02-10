@@ -1,0 +1,4 @@
+# openstack (Kilo stable) needs version <3.0
+# once they update requirement, we can push >=3.0 versions
+# check: https://github.com/openstack/requirements/blob/stable/kilo/global-requirements.txt
+watchurl=https://pypi.python.org/simple/pymongo ../../packages/source/p/pymongo/pymongo-(2\..*).tar.gz.*
