@@ -1,4 +1,5 @@
 PKG_NAME := pymongo
-URL := https://pypi.python.org/packages/source/p/pymongo/pymongo-2.8.1.tar.gz
+URL := https://pypi.python.org/packages/source/p/pymongo/pymongo-3.0.3.tar.gz
+ARCHIVES :=
 
 include ../common/Makefile.common
