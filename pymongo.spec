@@ -4,7 +4,7 @@
 #
 Name     : pymongo
 Version  : 3.0.3
-Release  : 15
+Release  : 16
 URL      : https://pypi.python.org/packages/source/p/pymongo/pymongo-3.0.3.tar.gz
 Source0  : https://pypi.python.org/packages/source/p/pymongo/pymongo-3.0.3.tar.gz
 Summary  : Python driver for MongoDB <http://www.mongodb.org>
