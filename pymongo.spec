@@ -4,7 +4,7 @@
 #
 Name     : pymongo
 Version  : 3.1.1
-Release  : 25
+Release  : 26
 URL      : https://pypi.python.org/packages/source/p/pymongo/pymongo-3.1.1.tar.gz
 Source0  : https://pypi.python.org/packages/source/p/pymongo/pymongo-3.1.1.tar.gz
 Summary  : Python driver for MongoDB <http://www.mongodb.org>
@@ -37,6 +37,8 @@ python components for the pymongo package.
 %setup -q -n pymongo-3.1.1
 
 %build
+export LANG=C
+export SOURCE_DATE_EPOCH=1484564910
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -46,9 +48,10 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python2 setup.py test
 %install
+export SOURCE_DATE_EPOCH=1484564910
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files
 %defattr(-,root,root,-)
