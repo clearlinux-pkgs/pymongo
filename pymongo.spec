@@ -4,9 +4,9 @@
 #
 Name     : pymongo
 Version  : 3.1.1
-Release  : 27
-URL      : https://pypi.python.org/packages/source/p/pymongo/pymongo-3.1.1.tar.gz
-Source0  : https://pypi.python.org/packages/source/p/pymongo/pymongo-3.1.1.tar.gz
+Release  : 28
+URL      : http://pypi.debian.net/pymongo/pymongo-3.1.1.tar.gz
+Source0  : http://pypi.debian.net/pymongo/pymongo-3.1.1.tar.gz
 Summary  : Python driver for MongoDB <http://www.mongodb.org>
 Group    : Development/Tools
 License  : Apache-2.0
@@ -18,12 +18,8 @@ BuildRequires : python3-dev
 BuildRequires : setuptools
 
 %description
-=======
 PyMongo
-=======
-:Info: See `the mongo site <http://www.mongodb.org>`_ for more information. See `github <http://github.com/mongodb/mongo-python-driver/tree>`_ for the latest source.
-:Author: Mike Dirolf
-:Maintainer: Bernie Hackett <bernie@mongodb.com>
+        =======
 
 %package python
 Summary: python components for the pymongo package.
@@ -37,8 +33,11 @@ python components for the pymongo package.
 %setup -q -n pymongo-3.1.1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1484564910
+export SOURCE_DATE_EPOCH=1503074879
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -46,16 +45,20 @@ python3 setup.py build -b py3
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python2.7/site-packages python2 setup.py test
+PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test
 %install
-export SOURCE_DATE_EPOCH=1484564910
+export SOURCE_DATE_EPOCH=1503074879
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
