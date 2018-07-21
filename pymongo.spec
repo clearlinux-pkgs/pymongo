@@ -4,7 +4,7 @@
 #
 Name     : pymongo
 Version  : 3.1.1
-Release  : 28
+Release  : 29
 URL      : http://pypi.debian.net/pymongo/pymongo-3.1.1.tar.gz
 Source0  : http://pypi.debian.net/pymongo/pymongo-3.1.1.tar.gz
 Summary  : Python driver for MongoDB <http://www.mongodb.org>
