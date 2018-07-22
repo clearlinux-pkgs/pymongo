@@ -4,9 +4,9 @@
 #
 Name     : pymongo
 Version  : 3.7.1
-Release  : 31
-URL      : https://files.pythonhosted.org/packages/b2/c8/8911124c0900cf83e39124a2849b6c992b32cf8d94f88941b06759b43825/pymongo-3.7.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/b2/c8/8911124c0900cf83e39124a2849b6c992b32cf8d94f88941b06759b43825/pymongo-3.7.1.tar.gz
+Release  : 32
+URL      : http://pypi.debian.net/pymongo/pymongo-3.7.1.tar.gz
+Source0  : http://pypi.debian.net/pymongo/pymongo-3.7.1.tar.gz
 Summary  : Python driver for MongoDB <http://www.mongodb.org>
 Group    : Development/Tools
 License  : Apache-2.0
@@ -63,7 +63,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532243955
+export SOURCE_DATE_EPOCH=1532295250
 python3 setup.py build -b py3
 
 %check
