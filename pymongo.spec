@@ -4,7 +4,7 @@
 #
 Name     : pymongo
 Version  : 3.7.2
-Release  : 33
+Release  : 34
 URL      : https://files.pythonhosted.org/packages/0f/3a/b90cfa7e27fa92244925826538fa2cf80fed3cbd20a413fd0c1b9705d820/pymongo-3.7.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/0f/3a/b90cfa7e27fa92244925826538fa2cf80fed3cbd20a413fd0c1b9705d820/pymongo-3.7.2.tar.gz
 Summary  : Python driver for MongoDB <http://www.mongodb.org>
