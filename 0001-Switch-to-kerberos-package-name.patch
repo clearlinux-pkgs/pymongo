@@ -1,0 +1,42 @@
+From 6330411058b29455f9fd38474fcf755bfecdcdc9 Mon Sep 17 00:00:00 2001
+From: George T Kramer <george.t.kramer@intel.com>
+Date: Wed, 10 Jul 2019 13:41:13 -0700
+Subject: [PATCH] Switch to kerberos package name
+
+Drop pykerberos as the package name because the kerberos upstream has
+changed.  Use the kerberos package name instead.
+
+Signed-off-by: George T Kramer <george.t.kramer@intel.com>
+---
+ pymongo.egg-info/requires.txt | 2 +-
+ setup.py                      | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/pymongo.egg-info/requires.txt b/pymongo.egg-info/requires.txt
+index a5cfe43..663b27a 100644
+--- a/pymongo.egg-info/requires.txt
++++ b/pymongo.egg-info/requires.txt
+@@ -1,6 +1,6 @@
+ 
+ [gssapi]
+-pykerberos
++kerberos
+ 
+ [snappy]
+ python-snappy
+diff --git a/setup.py b/setup.py
+index 0076be5..1300334 100755
+--- a/setup.py
++++ b/setup.py
+@@ -330,7 +330,7 @@ if sys.platform == 'win32':
+     if vi < (2, 7, 9):
+         extras_require['tls'].append("wincertstore>=0.2")
+ else:
+-    extras_require['gssapi'] = ["pykerberos"]
++    extras_require['gssapi'] = ["kerberos"]
+     if vi < (2, 7, 9):
+         extras_require['tls'].append("certifi")
+ 
+-- 
+2.22.0
+
