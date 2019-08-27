@@ -1,3 +1,0 @@
-# openstack Liberty needs version >= 3.0.2
-# for more information check https://github.com/openstack/requirements/blob/master/global-requirements.txt
-watchurl=https://pypi.python.org/simple/pymongo ../../packages/source/p/pymongo/pymongo-([\d.]*).tar.gz.*
