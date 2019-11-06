@@ -4,7 +4,7 @@
 #
 Name     : pymongo
 Version  : 3.9.0
-Release  : 39
+Release  : 42
 URL      : https://files.pythonhosted.org/packages/c0/69/9388b715d013444ae8e5d497a6825d120f6a7a67ef5aa8ddea62f601cbff/pymongo-3.9.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c0/69/9388b715d013444ae8e5d497a6825d120f6a7a67ef5aa8ddea62f601cbff/pymongo-3.9.0.tar.gz
 Summary  : Python driver for MongoDB <http://www.mongodb.org>
@@ -21,12 +21,8 @@ BuildRequires : kerberos
 Patch1: 0001-Switch-to-kerberos-package-name.patch
 
 %description
-=======
 PyMongo
-=======
-:Info: See `the mongo site <http://www.mongodb.org>`_ for more information. See `GitHub <http://github.com/mongodb/mongo-python-driver>`_ for the latest source.
-:Author: Mike Dirolf
-:Maintainer: Bernie Hackett <bernie@mongodb.com>
+        =======
 
 %package license
 Summary: license components for the pymongo package.
@@ -56,6 +52,7 @@ python3 components for the pymongo package.
 
 %prep
 %setup -q -n pymongo-3.9.0
+cd %{_builddir}/pymongo-3.9.0
 %patch1 -p1
 
 %build
@@ -63,8 +60,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565919897
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1574205256
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -73,16 +69,11 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
-%check
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pymongo
-cp LICENSE %{buildroot}/usr/share/package-licenses/pymongo/LICENSE
+cp %{_builddir}/pymongo-3.9.0/LICENSE %{buildroot}/usr/share/package-licenses/pymongo/7df059597099bb7dcf25d2a9aedfaf4465f72d8d
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -93,7 +84,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/pymongo/LICENSE
+/usr/share/package-licenses/pymongo/7df059597099bb7dcf25d2a9aedfaf4465f72d8d
 
 %files python
 %defattr(-,root,root,-)
