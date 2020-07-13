@@ -4,7 +4,7 @@
 #
 Name     : pymongo
 Version  : 3.10.1
-Release  : 48
+Release  : 49
 URL      : https://files.pythonhosted.org/packages/dc/9b/6791f7219f3573bfaa2251da4d814f4fbc49f0bbb258df1e08f7d89a7b85/pymongo-3.10.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/dc/9b/6791f7219f3573bfaa2251da4d814f4fbc49f0bbb258df1e08f7d89a7b85/pymongo-3.10.1.tar.gz
 Summary  : Python driver for MongoDB <http://www.mongodb.org>
